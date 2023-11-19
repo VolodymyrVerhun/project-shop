@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import Order from "./Order";
+import React, { useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import Order from '../Order/Order';
+import style from './Header.module.css';
 
 const showNothing = () => {
   return (
-    <div className="empty">
+    <div className={style.empty}>
       <h2>Товарів немає</h2>
     </div>
   );
@@ -12,15 +13,15 @@ const showNothing = () => {
 
 export default function Header({ orders, onDelete }) {
   let [cartOpen, setCartOpen] = useState(false);
-  const showOrders = (orders) => {
+  const showOrders = orders => {
     let suma = 0;
-    orders.forEach((element) => (suma += Number.parseFloat(element.price)));
+    orders.forEach(element => (suma += Number.parseFloat(element.price)));
     return (
       <div>
-        {orders.map((el) => (
+        {orders.map(el => (
           <Order onDelete={onDelete} key={el.id} item={el} />
         ))}
-        <p className="summa"> Cума: {suma}$ </p>
+        <p className={style.summa}> Cума: {suma}$ </p>
       </div>
     );
   };
@@ -28,23 +29,23 @@ export default function Header({ orders, onDelete }) {
   return (
     <header>
       <div>
-        <span className="logo">House Staff</span>
-        <ul className="nav">
+        <span className={style.logo}>House Staff</span>
+        <ul className={style.nav}>
           <li>Про нас</li>
           <li>Контакти</li>
           <li>Кабінет</li>
         </ul>
         <FaShoppingCart
           onClick={() => setCartOpen((cartOpen = !cartOpen))}
-          className={`shop-cart-button ${cartOpen && "active"}`}
+          className={`${style.shop_cart_button} ${cartOpen && style.active}`}
         />
         {cartOpen && (
-          <div className="shop-cart">
+          <div className={style.shop_cart}>
             {orders.length > 0 ? showOrders(orders) : showNothing()}
           </div>
         )}
       </div>
-      <div className="presentation"></div>
+      <div className={style.presentation}></div>
     </header>
   );
 }

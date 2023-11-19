@@ -1,0 +1,94 @@
+header {
+  position: relative;
+}
+header .logo {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+header ul.nav {
+  float: right;
+  list-style: none;
+}
+header ul.nav li {
+  display: inline;
+  margin-left: 25px;
+  cursor: pointer;
+  transition: opacit 500ms ease;
+}
+
+header ul.nav li:hover {
+  opacity: 0.5;
+}
+
+header .shop_cart_button {
+  float: right;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+header .shop_cart_button:hover,
+header .shop_cart_button.active {
+  color: #dc3d3d;
+  transform: scale(1.5);
+}
+
+header .shop_cart {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 450px;
+
+  background: #fafafa;
+  -webkit-box-shadow: 6px 1px 26px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 6px 1px 26px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 6px 1px 26px -5px rgba(0, 0, 0, 0.75);
+  z-index: 40;
+  padding: 20px;
+  padding-bottom: 0;
+}
+header .shop_cart .empty h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+header .shop_cart .summa {
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+header .presentation {
+  margin: 50px 0;
+  background: url('../../img/bg.jpeg') no-repeat;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-color: #bcbcbc;
+  position: relative;
+}
+
+header .presentation::after {
+  content: 'Кращі товари для Ваc';
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  width: 300px;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+}
+
+header .presentation::before {
+  content: 'за найкращими цінами';
+  position: absolute;
+  top: 250px;
+  left: 50px;
+  width: 300px;
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+}
