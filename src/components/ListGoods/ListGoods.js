@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import getGoods from '../api';
-import style from './ListGoods.module.css';
+
 export default function ListGoods({ onAdd, onShowItem }) {
   const [categories, setCategories] = useState([]);
 
