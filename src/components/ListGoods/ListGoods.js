@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
-import getGoods from '../api';
 
-export default function ListGoods({ onAdd, onShowItem }) {
-  const [categories, setCategories] = useState([]);
+import style from './ListGoods.module.css';
 
-  useEffect(() => {
-    getGoods()
-      .then(data => {
-        setCategories(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
-
+export default function ListGoods({ goods, onAdd, onShowItem }) {
   return (
-    <main>
-      {categories.map(item => (
+    <main className={style.main}>
+      {goods.map(item => (
         <Item onShowItem={onShowItem} key={item.id} item={item} onAdd={onAdd} />
       ))}
     </main>

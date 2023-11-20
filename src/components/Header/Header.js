@@ -49,6 +49,3 @@ export default function Header({ orders, onDelete }) {
     </header>
   );
 }
-// {orders.map((el) => (
-//   <Order key={el.id} item={el} />
-// ))}

@@ -9,7 +9,7 @@ export default function ShowFullItem({ item, onShowItem, onAdd }) {
         <p>{item.description}</p>
         <b>{item.price} $</b>
         <button onClick={() => onAdd(item)} className={style.add_to_cart}>
-          +
+          купити
         </button>
       </div>
     </div>

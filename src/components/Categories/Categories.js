@@ -1,28 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import getGoods, { getCategory } from '../api';
+import { getCategory } from '../api';
 import style from './Categories.module.css';
-export default function Categories() {
-  const [categories, setCategories] = useState([]);
+export default function Categories({ chooseCategory }) {
   const [curentCategories, setCurentCategories] = useState([]);
-
-  const chooseCategory = category => {
-    if (category === 'all') {
-      setCategories([...categories]);
-    } else {
-      const filteredItems = categories.filter(el => el.category === category);
-      setCategories(filteredItems);
-    }
-  };
-
-  useEffect(() => {
-    getGoods()
-      .then(data => {
-        setCategories(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     getCategory()
@@ -36,8 +16,9 @@ export default function Categories() {
 
   return (
     <div className={style.categories}>
-      {' '}
-      <div id="all">All</div>
+      <div onClick={e => chooseCategory(e.target.id)} id="all">
+        All
+      </div>
       {curentCategories.map(el => (
         <div
           onClick={() => {
