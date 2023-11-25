@@ -1,66 +1,54 @@
 import Header from './components/Header/Header';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
-import Categories from './components/Categories/Categories';
-import ShowFullItem from './components/ShowFullItem/ShowFullItem';
-import ListGoods from './components/ListGoods/ListGoods';
-import getGoods from 'components/api';
+
+import { Route, Routes } from 'react-router-dom';
+import MyCabinetPage from 'pages/myCabinet/MyCabinetPage';
+import HomePage from 'pages/home/HomePage';
+import CatalogPage from 'pages/catalog/CatalogPage';
 
 function App() {
   const [orders, setOrders] = useState([]);
-  const [showFullItem, setShowFullItem] = useState(false);
-  const [fullItem, setFullItem] = useState({});
-  const [goods, setGoods] = useState([]);
-  const [curentGoods, setCurentGoods] = useState([]);
+
   const addToOrder = item => {
-    let isInArray = false;
-    orders.forEach(el => {
-      if (el.id === item.id) isInArray = true;
-    });
-    if (!isInArray) setOrders(prevState => [...prevState, item]);
+    const isInArray = orders.some(el => el.id === item.id);
+
+    if (!isInArray) {
+      const newCountOrders = [...orders, item];
+      setOrders(newCountOrders);
+      localStorage.setItem('order', JSON.stringify(newCountOrders));
+    }
   };
   const deleteOrder = id => {
-    setOrders(orders.filter(order => order.id !== id));
+    const newCountOrders = orders.filter(order => order.id !== id);
+    setOrders(newCountOrders);
+    localStorage.setItem('order', JSON.stringify(newCountOrders));
   };
 
-  const onShowItem = item => {
-    setFullItem(item);
-    setShowFullItem(!showFullItem);
-  };
-
-  const chooseCategory = category => {
-    if (category === 'all') {
-      setCurentGoods(goods);
-      return;
-    }
-    setCurentGoods(goods.filter(el => el.category === category));
-  };
   useEffect(() => {
-    getGoods()
-      .then(data => {
-        setGoods(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    const saveOrders = localStorage.getItem('order');
+    if (saveOrders) {
+      setOrders(JSON.parse(saveOrders));
+    }
   }, []);
-  console.log(curentGoods);
+
+  useEffect(() => {
+    const saveOrders = localStorage.getItem('order');
+    if (saveOrders) {
+      setOrders(JSON.parse(saveOrders));
+    }
+  }, []);
   return (
     <div className="wrapper">
-      <Header onDelete={deleteOrder} orders={orders} />
-      <Categories chooseCategory={chooseCategory} />
-      <ListGoods
-        goods={curentGoods}
-        onShowItem={onShowItem}
-        onAdd={addToOrder}
-      />
-      {showFullItem && (
-        <ShowFullItem
-          onShowItem={onShowItem}
-          onAdd={addToOrder}
-          item={fullItem}
-        />
-      )}
+      <Header onDelete={deleteOrder} orders={orders} onAdd={addToOrder} />
+      <div>
+        <Routes>
+          <Route path="" element={<HomePage onAdd={addToOrder} />} />
+          <Route path="/catalog" element={<CatalogPage onAdd={addToOrder} />} />
+          <Route path="/myCabinet" element={<MyCabinetPage />} />
+        </Routes>
+      </div>
+
       <Footer />
     </div>
   );

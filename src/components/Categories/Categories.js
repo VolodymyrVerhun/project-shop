@@ -3,6 +3,7 @@ import { getCategory } from '../api';
 import style from './Categories.module.css';
 export default function Categories({ chooseCategory }) {
   const [curentCategories, setCurentCategories] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState('all');
 
   useEffect(() => {
     getCategory()
@@ -14,18 +15,26 @@ export default function Categories({ chooseCategory }) {
       });
   }, []);
 
+  const handleCategoryClick = id => {
+    chooseCategory(id);
+    setSelectedCategories(id);
+  };
+
   return (
     <div className={style.categories}>
-      <div onClick={e => chooseCategory(e.target.id)} id="all">
+      <div
+        id="all"
+        onClick={() => handleCategoryClick('all')}
+        className={selectedCategories === 'all' ? style.active : ''}
+      >
         All
       </div>
       {curentCategories.map(el => (
         <div
-          onClick={() => {
-            chooseCategory(el);
-          }}
+          onClick={() => handleCategoryClick(el)}
           key={el}
           id={el}
+          className={selectedCategories === el ? style.active : ''}
         >
           {el}
         </div>
