@@ -1,0 +1,32 @@
+.sort {
+  padding: 10px 45px;
+  background-color: aliceblue;
+  width: fit-content;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.sort:hover {
+  background-color: rgb(143, 117, 208);
+}
+.ul {
+  list-style: none;
+  position: absolute;
+
+  z-index: 996;
+
+  border-radius: 5px;
+  display: none;
+}
+.li {
+  padding: 5px;
+  width: 280px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: aliceblue;
+}
+.li:hover {
+  background-color: rgb(143, 117, 208);
+}
+.sort:hover > .ul {
+  display: initial;
+}

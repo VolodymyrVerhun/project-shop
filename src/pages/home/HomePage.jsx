@@ -19,7 +19,7 @@ export default function HomePage({ onAdd }) {
   const [bestGoods, setBestGoods] = useState([]);
   const [showFullItem, setShowFullItem] = useState(false);
   const [fullItem, setFullItem] = useState({});
-  console.log(bestGoods);
+
   const onShowItem = item => {
     setFullItem(item);
     setShowFullItem(!showFullItem);
@@ -68,9 +68,6 @@ export default function HomePage({ onAdd }) {
             <Item onShowItem={onShowItem} item={item} onAdd={onAdd} />
           </SwiperSlide>
         ))}
-        {showFullItem && (
-          <ShowFullItem onShowItem={onShowItem} onAdd={onAdd} item={fullItem} />
-        )}
 
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow">
@@ -82,6 +79,9 @@ export default function HomePage({ onAdd }) {
           <div className="swiper-pagination"></div>
         </div>
       </Swiper>
+      {showFullItem && (
+        <ShowFullItem onShowItem={onShowItem} onAdd={onAdd} item={fullItem} />
+      )}
     </div>
   );
 }

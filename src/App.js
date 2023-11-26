@@ -3,7 +3,7 @@ import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
-import MyCabinetPage from 'pages/myCabinet/MyCabinetPage';
+
 import HomePage from 'pages/home/HomePage';
 import CatalogPage from 'pages/catalog/CatalogPage';
 
@@ -45,7 +45,7 @@ function App() {
         <Routes>
           <Route path="" element={<HomePage onAdd={addToOrder} />} />
           <Route path="/catalog" element={<CatalogPage onAdd={addToOrder} />} />
-          <Route path="/myCabinet" element={<MyCabinetPage />} />
+          {/* <Route path="/myCabinet" element={<MyCabinetPage />} /> */}
         </Routes>
       </div>
 

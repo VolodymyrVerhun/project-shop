@@ -59,12 +59,12 @@ export default function Header({ orders, onDelete }) {
           >
             Каталог
           </NavLink>
-          <NavLink
+          {/* <NavLink
             className={({ isActive }) => (isActive ? `${style.active}` : '')}
             to="myCabinet"
           >
             Мій кабінет
-          </NavLink>
+          </NavLink> */}
         </ul>
       </div>
     </header>
