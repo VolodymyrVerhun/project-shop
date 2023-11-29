@@ -1,4 +1,4 @@
-import style from './Item.module.css';
+import style from './Item.module.scss';
 
 export default function Item({ item, onAdd, onShowItem }) {
   return (

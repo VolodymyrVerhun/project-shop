@@ -5,10 +5,11 @@
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+  &:hover {
+    background-color: rgb(143, 117, 208);
+  }
 }
-.sort:hover {
-  background-color: rgb(143, 117, 208);
-}
+
 .ul {
   list-style: none;
   position: absolute;
@@ -19,14 +20,19 @@
   display: none;
 }
 .li {
+  font-size: 15px;
   padding: 5px;
-  width: 280px;
+  width: 120px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: aliceblue;
+  &:hover {
+    background-color: rgb(143, 117, 208);
+  }
+  @media screen and (min-width: 1200px) {
+    width: 280px;
+  }
 }
-.li:hover {
-  background-color: rgb(143, 117, 208);
-}
+
 .sort:hover > .ul {
   display: initial;
 }

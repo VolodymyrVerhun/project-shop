@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import Order from '../Order/Order';
-import style from './Header.module.css';
+import style from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
 import { FcMindMap } from 'react-icons/fc';
 

@@ -1,6 +1,6 @@
 import Item from '../Item/Item';
 
-import style from './ListGoods.module.css';
+import style from './ListGoods.module.scss';
 
 export default function ListGoods({ goods, onAdd, onShowItem }) {
   return (

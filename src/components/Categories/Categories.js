@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCategory } from '../api';
-import style from './Categories.module.css';
+import style from './Categories.module.scss';
 export default function Categories({ chooseCategory }) {
   const [curentCategories, setCurentCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState('all');

@@ -3,7 +3,7 @@ import Categories from '../../components/Categories/Categories';
 import ShowFullItem from '../../components/ShowFullItem/ShowFullItem';
 import ListGoods from '../../components/ListGoods/ListGoods';
 import getGoods from 'components/api';
-import style from './CatalogPage.module.css';
+import style from './CatalogPage.module.scss';
 
 export default function CatalogPage({ onAdd }) {
   const [showFullItem, setShowFullItem] = useState(false);

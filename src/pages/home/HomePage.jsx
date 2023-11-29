@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './HomePage.module.css';
+import style from './HomePage.module.scss';
 import getGoods from 'components/api';
 import Item from 'components/Item/Item';
 import ShowFullItem from 'components/ShowFullItem/ShowFullItem';

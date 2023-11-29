@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './ShowFullItem.module.css';
+import style from './ShowFullItem.module.scss';
 export default function ShowFullItem({ item, onShowItem, onAdd }) {
   return (
     <div className={style.full_item}>
