@@ -1,0 +1,40 @@
+.sort {
+  padding: 10px 45px;
+  background-color: aliceblue;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.sort:hover {
+  background-color: rgb(143, 117, 208);
+}
+
+.ul {
+  list-style: none;
+  position: absolute;
+  z-index: 996;
+  border-radius: 5px;
+  display: none;
+}
+
+.li {
+  font-size: 15px;
+  padding: 5px;
+  width: 120px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: aliceblue;
+}
+.li:hover {
+  background-color: rgb(143, 117, 208);
+}
+@media screen and (min-width: 1200px) {
+  .li {
+    width: 280px;
+  }
+}
+
+.sort:hover > .ul {
+  display: initial;
+}/*# sourceMappingURL=CatalogPage.module.css.map */

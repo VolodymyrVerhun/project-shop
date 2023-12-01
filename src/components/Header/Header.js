@@ -15,13 +15,30 @@ const showNothing = () => {
 
 export default function Header({ orders, onDelete }) {
   let [cartOpen, setCartOpen] = useState(false);
+  const [quantity, setQuantity] = useState({});
+
+  const handleChangeQuantity = (e, itemId) => {
+    const value = e.target.value;
+    setQuantity(prev => ({ ...prev, [itemId]: value }));
+  };
   const showOrders = orders => {
     let suma = 0;
-    orders.forEach(element => (suma += Number.parseFloat(element.price)));
+    orders.forEach(element => {
+      const quantityValue = quantity[element.id] || 1;
+      let totalPrice = element.price * quantityValue;
+      suma += Number.parseFloat(totalPrice);
+    });
+
     return (
       <div>
         {orders.map(el => (
-          <Order onDelete={onDelete} key={el.id} item={el} />
+          <Order
+            quantity={quantity[el.id] || 1}
+            handleChangeQuantity={e => handleChangeQuantity(e, el.id)}
+            onDelete={onDelete}
+            key={el.id}
+            item={el}
+          />
         ))}
         <p className={style.summa}> Cума: {suma.toFixed(2)}$ </p>
       </div>

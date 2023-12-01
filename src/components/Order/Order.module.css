@@ -3,59 +3,74 @@
   float: left;
   margin-bottom: 20px;
 }
+
 .item img {
   width: 40px;
   float: left;
   height: auto;
   margin-right: 5px;
-  @media screen and (min-width: 480px) {
+}
+@media screen and (min-width: 480px) {
+  .item img {
     width: 70px;
-    margin-right: 20px;
-  }
-  @media screen and (min-width: 1200px) {
-    width: 70px;
-
     margin-right: 20px;
   }
 }
+@media screen and (min-width: 1200px) {
+  .item img {
+    width: 70px;
+    margin-right: 20px;
+  }
+}
+
 .item h2 {
   font-size: 7px;
   margin-bottom: 10px;
-  @media screen and (min-width: 480px) {
+}
+@media screen and (min-width: 480px) {
+  .item h2 {
     font-size: 15px;
     margin-bottom: 10px;
   }
-  @media screen and (min-width: 1200px) {
+}
+@media screen and (min-width: 1200px) {
+  .item h2 {
     font-size: 20px;
     margin-bottom: 10px;
   }
 }
+
 input {
   width: 3vw;
   font-size: 15px;
   font-weight: 600;
   margin-left: 15px;
 }
+
 .item p {
   color: #797979;
   font-weight: 400;
   font-size: 10px;
-  @media screen and (min-width: 1200px) {
+}
+@media screen and (min-width: 1200px) {
+  .item p {
     font-weight: 600;
   }
 }
+
 .delete_item {
   float: right;
   position: relative;
   top: 5px;
   cursor: pointer;
   transition: color, transform 500ms ease;
-  &:hover {
-    color: #d83030;
-    transform: scale(1.5);
-  }
-
-  @media screen and (min-width: 1200px) {
+}
+.delete_item:hover {
+  color: #d83030;
+  transform: scale(1.5);
+}
+@media screen and (min-width: 1200px) {
+  .delete_item {
     top: -25px;
   }
-}
+}/*# sourceMappingURL=Order.module.css.map */

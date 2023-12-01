@@ -9,6 +9,8 @@ import CatalogPage from 'pages/catalog/CatalogPage';
 
 function App() {
   const [orders, setOrders] = useState([]);
+  // const [cartOpen, setCartOpen] = useState(false);
+  // const [quantity, setQuantity] = useState({});
 
   const addToOrder = item => {
     const isInArray = orders.some(el => el.id === item.id);
@@ -24,7 +26,17 @@ function App() {
     setOrders(newCountOrders);
     localStorage.setItem('order', JSON.stringify(newCountOrders));
   };
-
+  // const handleChangeQuantity = (e, itemId) => {
+  //   const value = e.target.value;
+  //   setQuantity(prev => ({ ...prev, [itemId]: value }));
+  // };
+  // const showOrders = orders => {
+  //   let suma = 0;
+  //   orders.forEach(element => {
+  //     const quantityValue = quantity[element.id] || 1;
+  //     let totalPrice = element.price * quantityValue;
+  //     suma += Number.parseFloat(totalPrice);
+  //   });
   useEffect(() => {
     const saveOrders = localStorage.getItem('order');
     if (saveOrders) {
