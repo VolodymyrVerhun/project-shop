@@ -43,7 +43,7 @@ function App() {
       <Header onDelete={deleteOrder} orders={orders} onAdd={addToOrder} />
       <div>
         <Routes>
-          <Route path="/" element={<HomePage onAdd={addToOrder} />} />
+          <Route path="/" index element={<HomePage onAdd={addToOrder} />} />
           <Route path="/catalog" element={<CatalogPage onAdd={addToOrder} />} />
           {/* <Route path="/myCabinet" element={<MyCabinetPage />} /> */}
         </Routes>
