@@ -25,7 +25,7 @@ export default function Categories({ chooseCategory }) {
       <div
         id="all"
         onClick={() => handleCategoryClick('all')}
-        className={selectedCategories === 'all' ? style.active : ''}
+        className={selectedCategories === 'all' ? `${style.active}` : ''}
       >
         All
       </div>
@@ -34,7 +34,7 @@ export default function Categories({ chooseCategory }) {
           onClick={() => handleCategoryClick(el)}
           key={el}
           id={el}
-          className={selectedCategories === el ? style.active : ''}
+          className={selectedCategories === el ? `${style.active}` : ''}
         >
           {el}
         </div>

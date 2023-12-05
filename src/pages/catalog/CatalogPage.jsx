@@ -10,7 +10,7 @@ export default function CatalogPage({ onAdd }) {
   const [fullItem, setFullItem] = useState({});
   const [goods, setGoods] = useState([]);
   const [curentGoods, setCurentGoods] = useState([]);
-  // const [sortGoods, setSortGoods] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const onShowItem = item => {
     setFullItem(item);
@@ -62,9 +62,11 @@ export default function CatalogPage({ onAdd }) {
   return (
     <>
       <Categories chooseCategory={chooseCategory} />
-      <div className={style.sort}>
+      <div onClick={() => setIsOpen(prev => !prev)} className={style.sort}>
         сортувати: &#8659;
-        <ul className={style.ul}>
+      </div>
+      {isOpen && (
+        <ul onClick={() => setIsOpen(prev => !prev)} className={style.ul}>
           <li onClick={() => sortRating(curentGoods)} className={style.li}>
             по рейтингу
           </li>
@@ -75,7 +77,7 @@ export default function CatalogPage({ onAdd }) {
             від дорогих до дешевих
           </li>
         </ul>
-      </div>
+      )}
       {curentGoods.length > 0 ? (
         <ListGoods goods={curentGoods} onShowItem={onShowItem} onAdd={onAdd} />
       ) : (

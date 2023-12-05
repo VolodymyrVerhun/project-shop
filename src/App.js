@@ -31,13 +31,6 @@ function App() {
       setOrders(JSON.parse(saveOrders));
     }
   }, []);
-
-  useEffect(() => {
-    const saveOrders = localStorage.getItem('order');
-    if (saveOrders) {
-      setOrders(JSON.parse(saveOrders));
-    }
-  }, []);
   return (
     <div className="wrapper">
       <Header onDelete={deleteOrder} orders={orders} onAdd={addToOrder} />
@@ -45,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" index element={<HomePage onAdd={addToOrder} />} />
           <Route path="/catalog" element={<CatalogPage onAdd={addToOrder} />} />
+          <Route path="*" element={<HomePage />} />
           {/* <Route path="/myCabinet" element={<MyCabinetPage />} /> */}
         </Routes>
       </div>

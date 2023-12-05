@@ -42,8 +42,8 @@ export default function HomePage({ onAdd }) {
         grabCursor={true}
         centeredSlides={true}
         loop={true}
-        slidesPerView={3}
-        spaceBetween={30}
+        slidesPerView={1}
+        spaceBetween={10}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -62,6 +62,16 @@ export default function HomePage({ onAdd }) {
         }}
         modules={[EffectCoverflow, Pagination, Navigation]}
         className="swiper_container"
+        breakpoints={{
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
       >
         {bestGoods.map(item => (
           <SwiperSlide className={style.swiper} key={item.id}>

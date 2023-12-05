@@ -6,11 +6,10 @@
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+  &:hover {
+    background-color: rgb(143, 117, 208);
+  }
 }
-.sort:hover {
-  background-color: rgb(143, 117, 208);
-}
-
 .ul {
   list-style: none;
   position: absolute;
@@ -25,16 +24,15 @@
   width: 120px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: aliceblue;
-}
-.li:hover {
-  background-color: rgb(143, 117, 208);
+  &:hover {
+    background-color: rgb(143, 117, 208);
+  }
 }
 @media screen and (min-width: 1200px) {
   .li {
     width: 280px;
   }
 }
-
 .sort:hover > .ul {
   display: initial;
-}/*# sourceMappingURL=CatalogPage.module.css.map */
+} /*# sourceMappingURL=CatalogPage.module.css.map */

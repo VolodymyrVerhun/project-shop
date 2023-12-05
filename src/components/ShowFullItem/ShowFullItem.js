@@ -11,6 +11,9 @@ export default function ShowFullItem({ item, onShowItem, onAdd }) {
         <button onClick={() => onAdd(item)} className={style.add_to_cart}>
           купити
         </button>
+        <button onClick={() => onShowItem(item)} className={style.btn_x}>
+          x
+        </button>
       </div>
     </div>
   );
